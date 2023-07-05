@@ -1,0 +1,42 @@
+
+    {% extends 'base.html' %}
+    {% block content %}
+        <form method = 'POST' autocomplete="off">
+            <div class="row">
+                <div class="col-6 mx-auto mt-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="text-center">Edit Employee Details</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-6 mx-auto form-floating">
+                                <input type="number" class="form-control" id="emp_id" placeholder="Enter Name" name='emp_id' 
+                                value="{{emp.emp_id}}">
+                                <label for="emp_id">Employee ID: </label>
+                            </div>
+                            <div class="col-6 mx-auto mt-3 form-floating">
+                                <input type="text" class="form-control" id="emp_name" placeholder="Enter Name" name='emp_name' 
+                                value="{{emp.emp_name}}">
+                                <label for="emp_name">Employee Name:</label>
+                            </div>
+                            <div class="col-6 mt-3 mx-auto form-floating">
+                                <input type="email" class="form-control" id="emp_email" placeholder="Enter email" name="emp_email" 
+                                value="{{emp.emp_email}}">
+                                <label for="emp_email">Employee Email:</label>
+                            </div>      
+                            <div class="col-6 mt-3 mx-auto form-floating">
+                                <input type="text" class="form-control" id="emp_designation" placeholder="Enter Designation" name='emp_designation' value="{{emp.emp_designation}}">
+                                <label for="emp_designation">Employee Designation: </label>
+                            </div>            
+                        </div>
+                        <div class="card-footer">
+                            <div class="text-center mx-auto">
+                                {% csrf_token %}
+                                <input class="btn btn-primary" type="submit" value="Save Changes">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    {% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post">
+        <div class="row mt-5">
+            <div class="col-3 card text-bg-dark text-center mx-auto mt-5">
+                <div class="card-header">
+                    <p class="display-6">Add Stock</p>
+                </div>
+                <div class="card-body">
+                    <h3 class="mb-3">{{Details.product_name}}</h3>
+                    <h3 class="mb-3">{{Details.quantity}}</h3>
+                    <input type="number" min="0" class="form-control" id="purchase" placeholder="Purchased Quantity: " name='purchased' 
+                    value="{{details.purchased}}">
+                    <label for="purchase"></label>
+                </div>
+                <div class="card-footer">
+                    {% csrf_token %}
+                    <input class="btn btn-success" type="submit" value="Add">
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

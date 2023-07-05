@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <script src="https://kit.fontawesome.com/7f5caf3864.js" crossorigin="anonymous"></script>
+    <div class="row mt-5">
+        <div class="card table-responsive bg-dark col-5 mx-auto mt-5">
+            <div class="card-header">
+                <p class="display-4 text-center text-light my-3">Inventory</p>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered my-2">
+                    <thead class="text-bg-success text-center">
+                        <th>Products</th>
+                        <th>Quantity</th>
+                        <th>Add</th>
+                        <th>Remove</th>
+                    </thead>
+                    <tbody class="text-light">
+                        {% for i in Products%}
+                        <tr class="text-center">
+                            <td>{{i.product_name}}</td>
+                            <td>{{i.quantity}}</td>
+                            <td><a href="{% url 'add' i.id %}"><i class="fa-solid fa-plus text-light"></i></a></td>
+                            <td><a href="{% url 'sub' i.id %}"><i class="fa-solid fa-minus text-light"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
